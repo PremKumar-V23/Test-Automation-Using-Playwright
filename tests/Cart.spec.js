@@ -7,7 +7,6 @@ test('Login-and-Logout-Test', async ({ page }) => {
             timeout: 120000,
         },
     );
-    await page.pause();
     await page.fill('[data-test="username"]', 'standard_user');
     await page.fill('[data-test="password"]', 'secret_sauce');
     await page.click('[data-test="login-button"]');
