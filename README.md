@@ -12,7 +12,7 @@ https://www.saucedemo.com/
 
 ---
 
-## Tech Stack
+### Tech Stack
 
 - Playwright
 - JavaScript
