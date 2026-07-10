@@ -5,7 +5,7 @@ test('Login-and-Logout-Test', async ({ page }) => {
         {
             waitUntil: "domcontentloaded",
             timeout: 120000,
-        },
+        },    
     );
     await page.fill('[data-test="username"]', 'standard_user');
     await page.fill('[data-test="password"]', 'secret_sauce');
