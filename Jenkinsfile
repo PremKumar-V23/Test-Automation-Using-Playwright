@@ -5,7 +5,9 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git ...
+                git branch: 'main',
+                credentialsId: 'df631d0e-151f-48d8-a295-57cb13da26a2',
+                url: 'https://github.com/PremKumar-V23/Test-Automation-Using-Playwright.git'
             }
         }
 
