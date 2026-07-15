@@ -1,144 +1,133 @@
-# Playwright Test Automation - SauceDemo
+# 🚀 Playwright Test Automation Framework with Jenkins & Docker
 
-This project contains automated end-to-end UI test cases for the SauceDemo website using Playwright.
-
-## Project Overview
-
-The objective of this project is to automate the core functionalities of the SauceDemo application and validate its UI, navigation, product management, checkout flow, and responsiveness.
-
-**Application Under Test**
-
-https://www.saucedemo.com/
+A production-ready UI Automation Testing Framework built using **Playwright**, **JavaScript**, **Docker**, and **Jenkins CI/CD**. The project automates web application testing, executes tests inside Docker containers, publishes HTML reports through Jenkins, and supports continuous integration using GitHub.
 
 ---
 
-### Tech Stack
+## 🏷️ Badges
+
+![Playwright](https://img.shields.io/badge/Playwright-Test%20Automation-brightgreen)
+![Docker](https://img.shields.io/badge/Docker-Containerized-blue?logo=docker)
+![Jenkins](https://img.shields.io/badge/Jenkins-CI-red?logo=jenkins)
+![Node.js](https://img.shields.io/badge/Node.js-20.x-green?logo=node.js)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow?logo=javascript)
+
+---
+
+# 📌 Project Overview
+
+This project demonstrates an end-to-end **Test Automation CI/CD Pipeline**.
+
+It includes:
+
+- UI Automation using Playwright
+- Cross-browser Testing
+- Dockerized Test Execution
+- Jenkins Pipeline Integration
+- HTML Report Generation
+- Artifact Archiving
+- GitHub Source Control Integration
+- Docker Hub Image Publishing
+
+---
+
+# 🛠️ Tech Stack
 
 - Playwright
 - JavaScript
 - Node.js
-- VS Code
+- Docker
+- Jenkins
+- GitHub
 
 ---
 
-## Project Structure
+# 📂 Project Structure
 
 ```
-TestDocumentation/
-│
-├── screenshots/
-│   ├── 01-login-page.png
-│   ├── 02-after-login.png
-│   ├── 03-sidebar.png
-│   ├── 04-after-logout.png
-│   ├── Desktop.png
-│   ├── Tablet.png
-│   └── Mobile.png
+Test-Automation-Using-Playwright
 │
 ├── tests/
-│   ├── login_and_logout_test.spec.js
-│   ├── Inventory.spec.js
-│   ├── Cart.spec.js
-│   ├── Checkout.spec.js
-│   ├── Sorting.spec.js
-│   ├── UI.spec.js
-│   └── Responsive.spec.js
-│
-├── playwright.config.js
+├── screenshots/
+├── playwright-report/
+├── test-results/
+├── Dockerfile
+├── Jenkinsfile
 ├── package.json
+├── package-lock.json
+├── playwright.config.js
+├── .dockerignore
 └── README.md
 ```
 
 ---
 
-## Automated Test Cases
+# 🚀 Features
 
-### Login & Logout
-
-- Login with valid credentials
-- Verify successful login
-- Logout successfully
-- Verify redirection to login page
-
----
-
-### Inventory
-
-- Verify inventory page loads successfully
-- Verify all products are displayed
-- Verify product details
-- Verify product images
-- Verify product prices
+- Automated UI Testing
+- Login Validation
+- Inventory Validation
+- Checkout Testing
+- Responsive UI Testing
+- Sorting Validation
+- Cross-browser Execution
+- HTML Reports
+- Docker Support
+- Jenkins CI/CD Pipeline
+- Artifact Archiving
+- Docker Hub Image
 
 ---
 
-### Cart
+# 🐳 Docker Image
 
-- Add single product
-- Add multiple products
-- Add all products
-- Remove products
-- Verify shopping cart badge
-- Verify cart items
+Pull the Docker image directly from Docker Hub.
 
----
+```bash
+docker pull premkumarv23/playwright-tests:v1.0
+```
 
-### Checkout
+Run the Docker container:
 
-- Proceed to checkout
-- Enter customer information
-- Verify checkout overview
-- Complete checkout
-- Verify successful order completion
+```bash
+docker run premkumarv23/playwright-tests:v1.0
+```
 
----
+Docker Hub Repository:
 
-### Product Sorting
-
-- Sort Name (A-Z)
-- Sort Name (Z-A)
-- Sort Price (Low-High)
-- Sort Price (High-Low)
+https://hub.docker.com/r/premkumarv23/playwright-tests
 
 ---
 
-### UI Validation
-
-- Verify page title
-- Verify page URL
-- Verify header
-- Verify footer
-- Verify shopping cart icon
-- Verify menu button
-- Verify inventory container
-
----
-
-### Responsive Testing
-
-The application is tested on:
-
-- Desktop
-- Tablet
-- Mobile
-
-Screenshots are captured for each viewport.
-
----
-
-## Installation
+# 🔨 Build Docker Image
 
 Clone the repository
 
 ```bash
-git clone https://github.com/PremKumar-V23/TestDocumentation.git
+git clone https://github.com/PremKumar-V23/Test-Automation-Using-Playwright.git
 ```
 
-Navigate to the project
+Go to the project folder
 
 ```bash
-cd TestDocumentation
+cd Test-Automation-Using-Playwright
 ```
+
+Build the Docker image
+
+```bash
+docker build -t playwright-tests .
+```
+
+Run the container
+
+```bash
+docker run playwright-tests
+```
+
+---
+
+# ▶️ Run Locally
 
 Install dependencies
 
@@ -152,45 +141,19 @@ Install Playwright browsers
 npx playwright install
 ```
 
----
-
-## Running Tests
-
-Run all tests
+Execute all tests
 
 ```bash
 npx playwright test
 ```
 
-Run a specific test
+Run a specific browser
 
 ```bash
-npx playwright test tests/Inventory.spec.js
+npx playwright test --project=chromium
 ```
 
-Run in headed mode
-
-```bash
-npx playwright test --headed
-```
-
-Run in debug mode
-
-```bash
-npx playwright test --debug
-```
-
----
-
-## Reports
-
-Generate HTML report
-
-```bash
-npx playwright test --reporter=html
-```
-
-Open the report
+Open HTML report
 
 ```bash
 npx playwright show-report
@@ -198,20 +161,172 @@ npx playwright show-report
 
 ---
 
-## Features
+# ⚙️ Jenkins Pipeline
 
-- End-to-End UI Automation
-- Functional Testing
-- Responsive Testing
-- Screenshot Capture
-- HTML Reporting
-- Cross-browser Support
-- Playwright Best Practices
+The Jenkins pipeline performs the following steps automatically:
+
+1. Checkout source code from GitHub
+2. Build Docker Image
+3. Run Playwright Tests inside Docker
+4. Generate Playwright HTML Report
+5. Archive Test Results
+6. Publish HTML Report
+7. Display Build Status
 
 ---
 
-## Author
+# 🏗️ CI/CD Workflow
+
+```
+Developer
+    │
+git push
+    │
+    ▼
+GitHub Repository
+    │
+    ▼
+Jenkins Pipeline
+    │
+    ▼
+Checkout Source Code
+    │
+    ▼
+Build Docker Image
+    │
+    ▼
+Run Playwright Tests
+    │
+    ▼
+Generate HTML Report
+    │
+    ▼
+Archive Test Results
+    │
+    ▼
+Publish HTML Report
+```
+
+---
+
+# 📸 Screenshots
+
+Create an **images** folder and add screenshots like:
+
+```
+images/
+│
+├── jenkins-success.png
+├── playwright-report.png
+├── docker-desktop.png
+└── dockerhub.png
+```
+
+Reference them:
+
+```markdown
+## Jenkins Pipeline
+
+![Jenkins Pipeline](images/jenkins-success.png)
+
+## Playwright HTML Report
+
+![Playwright Report](images/playwright-report.png)
+
+## Docker Desktop
+
+![Docker Desktop](images/docker-desktop.png)
+
+## Docker Hub
+
+![Docker Hub](images/dockerhub.png)
+```
+
+---
+
+# 📦 Docker Commands
+
+Build Image
+
+```bash
+docker build -t playwright-tests .
+```
+
+List Images
+
+```bash
+docker images
+```
+
+Run Container
+
+```bash
+docker run playwright-tests
+```
+
+List Containers
+
+```bash
+docker ps -a
+```
+
+Push Image
+
+```bash
+docker push premkumarv23/playwright-tests:v1.0
+```
+
+Pull Image
+
+```bash
+docker pull premkumarv23/playwright-tests:v1.0
+```
+
+---
+
+# 📊 Test Reports
+
+Playwright automatically generates:
+
+- HTML Report
+- Screenshots
+- Videos
+- Trace Files
+
+View the report using:
+
+```bash
+npx playwright show-report
+```
+
+---
+
+# 💼 Resume Highlights
+
+### Playwright Automation Framework with Jenkins & Docker
+
+- Developed a production-ready UI Automation Testing Framework using Playwright and JavaScript.
+- Containerized the automation framework using Docker.
+- Built CI/CD pipelines using Jenkins Declarative Pipelines.
+- Integrated GitHub SCM with Jenkins for automated builds.
+- Published Playwright HTML Reports and archived test artifacts.
+- Published Docker images to Docker Hub for easy distribution.
+- Implemented cross-browser automation testing and responsive UI validation.
+
+---
+
+# 👨‍💻 Author
 
 **Prem Kumar**
 
-GitHub: https://github.com/PremKumar-V23
+🎓 MSc Information Technology
+
+🔗 GitHub: https://github.com/PremKumar-V23
+
+🐳 Docker Hub: https://hub.docker.com/r/premkumarv23/playwright-tests
+
+---
+
+# ⭐ Support
+
+If you found this project useful, please consider giving it a ⭐ on GitHub.
